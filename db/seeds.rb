@@ -37,3 +37,5 @@ populate_stats Location.create name: 'MOA2012', description: 'MOA', latitude: 0.
 populate_stats Location.create name: 'UNICEF', description: 'UNICEF Office', latitude: 0.323526, longitude: 32.625318 if Location.find_by_name('UNICEF').nil?
 
 User.create email: 'sanhack@sanhack.com', password: 'sanhack', password_confirmation: 'sanhack'
+
+puts 'Database seeded'

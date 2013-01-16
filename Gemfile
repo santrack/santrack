@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '~> 3.2.0'
 
 gem 'pg'
-gem 'sqlite3'
 gem 'jquery-rails'
 gem 'eventmachine'
 gem 'tweetstream'
@@ -17,6 +16,11 @@ gem "devise"
 gem 'rabl'
 gem 'oj'
 gem 'rails_admin'
+gem 'thin'
+
+group :development, :test do
+  gem 'sqlite3'
+end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -25,6 +29,5 @@ group :assets do
 end
 
 group :development do
-  gem 'thin'
   gem 'pry'
 end
