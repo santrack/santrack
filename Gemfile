@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '~> 3.2.0'
 
+gem 'pg'
 gem 'sqlite3'
 gem 'jquery-rails'
 gem 'eventmachine'
@@ -12,6 +13,7 @@ gem "therubyracer"
 gem "less-rails"
 gem "twitter-bootstrap-rails"
 
+gem "devise"
 gem 'rabl'
 gem 'oj'
 gem 'rails_admin'
@@ -26,6 +28,3 @@ group :development do
   gem 'thin'
   gem 'pry'
 end
-
-
-gem "devise"
