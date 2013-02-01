@@ -9,20 +9,30 @@
   <table class="table table-hover table-bordered">
     <thead>
       <tr>
-        <th>Location</th>
-        <th>No. of people used toilet</th>
-        <th>No. of people washed their hands</th>
-        <th>Water level</th>
+        <th rowspan="2">Location</th>
+        <th rowspan="2">Water level</th>
+
+        <th colspan="2">Today</th>
+        <th colspan="2">Overall</th>
+      </tr>
+      <tr>
+        <th># people used toilet</th>
+        <th># people washed their hands</th>
+        <th># people used toilet</th>
+        <th># people washed their hands</th>
       </tr>
     </thead>
     <tbody>
       <% @locations.each do |location| %>
-        <% stat = location.latest_stat || Stat.new %>
+        <% latest_stat  = location.latest_stat || Stat.new %>
+        <% overall_stat = location.overall_stat %>
         <tr>
           <td><%= link_to location.name, location_path(location) %></td>
-          <td><%= stat.toilet_count %></td>
-          <td><%= stat.wash_basin_count %></td>
-          <td><%= stat.water_level %></td>
+          <td><%= latest_stat.water_level %></td>
+          <td><%= latest_stat.toilet_count %></td>
+          <td><%= latest_stat.wash_basin_count %></td>
+          <td><%= overall_stat.toilet_count %></td>
+          <td><%= overall_stat.wash_basin_count %></td>
         </tr>
       <% end %>
     </tbody>

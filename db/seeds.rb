@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-def populate_stats(location)
+def populate_stats(location, spikes=4)
   water_level = 250
 
-  (1..4).to_a.reverse.each do |d|
+  (1..spikes).to_a.reverse.each do |d|
     time = d.days.ago.to_date.to_datetime
     water_level = 250 if d != 2
 
@@ -33,10 +33,10 @@ def populate_stats(location)
   end
 end
 
-populate_stats Location.create name: 'School', description: 'School', latitude: 0.338035, longitude: 32.598235 if Location.find_by_name('School').nil?
-populate_stats Location.create name: 'Hospital', description: 'Hospital', latitude: 0.323526, longitude: 32.625318 if Location.find_by_name('Hospital').nil?
-populate_stats Location.create name: 'Public Toilet', description: 'Public Toilet', latitude: 0.313611, longitude: 32.581111 if Location.find_by_name('Public Toilet').nil?
-populate_stats Location.create name: 'Office', description: 'Office', latitude: 0.338152, longitude: 32.575882 if Location.find_by_name('Office').nil?
+populate_stats Location.create(name: 'School', description: 'School', latitude: 0.338035, longitude: 32.598235), 30 if Location.find_by_name('School').nil?
+populate_stats Location.create(name: 'Hospital', description: 'Hospital', latitude: 0.323526, longitude: 32.625318), 15 if Location.find_by_name('Hospital').nil?
+populate_stats Location.create(name: 'Public Toilet', description: 'Public Toilet', latitude: 0.313611, longitude: 32.581111), 20 if Location.find_by_name('Public Toilet').nil?
+populate_stats Location.create(name: 'Office', description: 'Office', latitude: 0.338152, longitude: 32.575882), 10 if Location.find_by_name('Office').nil?
 
 User.create email: 'sanhack@sanhack.com', password: 'sanhack', password_confirmation: 'sanhack'
 
