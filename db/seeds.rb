@@ -33,8 +33,10 @@ def populate_stats(location)
   end
 end
 
-populate_stats Location.create name: 'MOA2012', description: 'MOA', latitude: 0.345244, longitude: 32.597626 if Location.find_by_name('SANHACK2012').nil?
-populate_stats Location.create name: 'UNICEF', description: 'UNICEF Office', latitude: 0.323526, longitude: 32.625318 if Location.find_by_name('UNICEF').nil?
+populate_stats Location.create name: 'School', description: 'School', latitude: 0.338035, longitude: 32.598235 if Location.find_by_name('School').nil?
+populate_stats Location.create name: 'Hospital', description: 'Hospital', latitude: 0.323526, longitude: 32.625318 if Location.find_by_name('Hospital').nil?
+populate_stats Location.create name: 'Public Toilet', description: 'Public Toilet', latitude: 0.313611, longitude: 32.581111 if Location.find_by_name('Public Toilet').nil?
+populate_stats Location.create name: 'Office', description: 'Office', latitude: 0.338152, longitude: 32.575882 if Location.find_by_name('Office').nil?
 
 User.create email: 'sanhack@sanhack.com', password: 'sanhack', password_confirmation: 'sanhack'
 
